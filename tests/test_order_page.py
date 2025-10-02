@@ -2,7 +2,7 @@ import allure
 import pytest
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
-from data import DataUser1, DataUser2
+from data import User_1, User_2
 
 
 class TestOrder:
@@ -14,10 +14,9 @@ class TestOrder:
         
         main_page.open()
         main_page.accept_cookies()
-        main_page.click_order_button_top()  # ✅ Конкретный метод
-        
-        order_page.data_entry_first_form(DataUser1())
-        order_page.data_entry_second_form(DataUser1())
+        main_page.click_order_button_top() 
+        order_page.data_entry_first_form(User_1())
+        order_page.data_entry_second_form(User_1())
         
         assert order_page.check_displaying_of_button_check_status_of_order()
 
@@ -28,9 +27,9 @@ class TestOrder:
         
         main_page.open()
         main_page.accept_cookies()
-        main_page.click_order_button_bottom()  # ✅ Конкретный метод
+        main_page.click_order_button_bottom()  
         
-        order_page.data_entry_first_form(DataUser2())
-        order_page.data_entry_second_form(DataUser2())
+        order_page.data_entry_first_form(User_2())
+        order_page.data_entry_second_form(User_2())
         
         assert order_page.check_displaying_of_button_check_status_of_order()

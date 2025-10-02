@@ -66,23 +66,16 @@ class BasePage:
 
     @allure.step('Дождаться и переключиться на новую вкладку')
     def wait_and_switch_to_new_tab(self):
-        """
-        Умное переключение на новую вкладку.
-        Перенесена логика из MainPage.check_yandex_redirect()
-        """
-        # Сохраняем текущую вкладку
+
         original_window = self.driver.current_window_handle
         
-        # Ждем появления второй вкладки
         self.wait.until(lambda driver: len(driver.window_handles) > 1)
         
-        # Переключаемся на новую вкладку (последнюю в списке)
         for window_handle in self.driver.window_handles:
             if window_handle != original_window:
                 self.driver.switch_to.window(window_handle)
                 break
         
-        # Ждем загрузки страницы и проверяем URL
         self.wait.until(lambda driver: driver.current_url != 'about:blank')
         
         return original_window

@@ -11,7 +11,6 @@ class TestLogoRedirect:
         main_page.open()
         main_page.accept_cookies()
         
-        # Переходим на страницу заказа и возвращаемся по лого
         main_page.click_order_button_top()
         main_page.click_scooter_logo()
         

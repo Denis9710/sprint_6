@@ -13,7 +13,7 @@ class MainPage(BasePage):
 
     @allure.step('Открыть главную страницу')
     def open(self):
-        # ✅ Исправлено: используем метод из BasePage вместо прямого обращения к driver
+        
         self.go_to_url(self.url)
 
     @allure.step('Принять куки')
@@ -58,7 +58,7 @@ class MainPage(BasePage):
 
     @allure.step('Получить текущий URL')
     def get_current_url(self):
-        # ✅ Исправлено: используем метод из BasePage вместо прямого обращения к driver
+
         return self.get_page_url()
 
     @allure.step('Проверить переход на главную страницу Самоката')
@@ -67,17 +67,11 @@ class MainPage(BasePage):
 
     @allure.step('Проверить переход на Дзен через логотип Яндекса')
     def check_yandex_redirect(self):
-        """
-        Проверка редиректа на Дзен после клика на логотип Яндекса.
-        ✅ ИСПРАВЛЕНО: убраны прямые обращения к driver и WebDriverWait
-        """
-        # ✅ Исправлено: используем метод из BasePage вместо прямого WebDriverWait
+
         original_window = self.wait_and_switch_to_new_tab()
         
-        # Получаем URL новой вкладки
         current_url = self.get_current_url()
         
-        # ✅ Исправлено: используем методы из BasePage
         self.close_current_tab()
         self.switch_to_window(original_window)
         

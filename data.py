@@ -30,7 +30,7 @@ class User_2:
     name = 'Пуп'
     surname = 'Земли'
     address = 'Москва, Красная площадь, 1' 
-    station_name = 'Арбат'
+    station_name = 'Арбатская'
     telephone = '+79999999999'
     date = '01.10.2025'
     period = 'двое суток' 
